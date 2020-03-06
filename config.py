@@ -32,7 +32,7 @@ def configure(repl):
     repl.show_meta_enter_message = True
 
     # Show completions. (NONE, POP_UP, MULTI_COLUMN or TOOLBAR)
-    repl.completion_visualisation = CompletionVisualisation.MULTI_COLUMN
+    repl.completion_visualisation = CompletionVisualisation.POP_UP
 
     # When CompletionVisualisation.POP_UP has been chosen, use this
     # scroll_offset in the completion menu.
@@ -107,15 +107,17 @@ def configure(repl):
     repl.enable_input_validation = True
 
     # Use this colorscheme for the code.
-    repl.use_code_colorscheme("stata-dark")
+    repl.use_code_colorscheme("friendly")
+    # repl.use_code_colorscheme("default") # the default looks good except for package names
+    # repl.use_code_colorscheme("stata-dark") # good but not always available
     # repl.use_code_colorscheme("vim")
 
     # Set color depth (keep in mind that not all terminals support true color).
 
     # repl.color_depth = 'DEPTH_1_BIT'  # Monochrome.
     # repl.color_depth = 'DEPTH_4_BIT'  # ANSI colors only.
-    repl.color_depth = "DEPTH_8_BIT"  # The default, 256 colors.
-    # repl.color_depth = 'DEPTH_24_BIT'  # True color.
+    # repl.color_depth = "DEPTH_8_BIT"  # The default, 256 colors.
+    repl.color_depth = 'DEPTH_24_BIT'  # True color.
 
     # Syntax.
     repl.enable_syntax_highlighting = True
