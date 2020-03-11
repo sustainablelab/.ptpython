@@ -8,19 +8,25 @@ Open a Python REPL and use `appdirs` to find out where the
 >>> appdirs.user_config_dir("ptpython","prompt_toolkit")
 ```
 
-Go to this directory. Then use wget to download the config file
-from this repo as a starting point. *(`wget` is not part of the
-base Cygwin install, run the Cygwin package manager to install
-it)*
+Change pwd to this directory. Then use wget to download the config file
+from this repo as a starting point.
+
+## Download from GitHub without cloning
+
+Use `wget` on the raw file URL.
+
+`wget` the raw file link
+```bash
+$ wget https://raw.githubusercontent.com/sustainablelab/.config-ptpython/master/Windows/config.py
+```
+
+`wget` is not part of the base Cygwin install. Run the Cygwin
+package manager to install it.
 
 Click on the `Raw` button on the GitHub site to get the URL to
 the raw file (otherwise `wget` downloads the HTML page).
 
-`wget` the raw file link
-```bash
-$ wget {raw_file_link}
-```
-
+## Edit the config
 Create a bash variable to this path. Here is how that looks on
 Cygwin:
 
@@ -39,7 +45,9 @@ Example quickly editing the config with Vim:
 $ vim $ptpythonw_config
 ```
 
-Example using this variable to quickly navigate to the folder:
+## Navigate to config folder
+Example using this variable to quickly navigate to the folder
+that has the `ptpython` config:
 
 ```bash
 $ cd "$(find $ptpythonw_config -printf '%h')"
