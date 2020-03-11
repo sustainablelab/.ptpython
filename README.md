@@ -1,4 +1,51 @@
-# Put `config.py` in `.config/ptpython`
+# Windows: Put `config.py` in appdirs folder
+
+Open a Python REPL and use `appdirs` to find out where the
+`ptpython` *config* files should go:
+
+```python
+>>> import appdirs
+>>> appdirs.user_config_dir("ptpython","prompt_toolkit")
+```
+
+Go to this directory. Then use wget to download the config file
+from this repo as a starting point. *(`wget` is not part of the
+base Cygwin install, run the Cygwin package manager to install
+it)*
+
+Click on the `Raw` button on the GitHub site to get the URL to
+the raw file (otherwise `wget` downloads the HTML page).
+
+`wget` the raw file link
+```bash
+$ wget {raw_file_link}
+```
+
+Create a bash variable to this path. Here is how that looks on
+Cygwin:
+
+```bash
+ # ~/.bashrc
+
+ # Window ptpython config file
+ptpythonw_config="/cygdrive/c/Users/username/AppData/Local/prompt_toolkit/ptpython/config.py"
+ # Make accessible in Vim as $ptpythonw_config
+export ptpythonw_config
+```
+
+Example quickly editing the config with Vim:
+
+```bash
+$ vim $ptpythonw_config
+```
+
+Example using this variable to quickly navigate to the folder:
+
+```bash
+$ cd "$(find $ptpythonw_config -printf '%h')"
+```
+
+# Cygwin: Put `config.py` in `.config/ptpython`
 
 Put `config.py` in `$HOME/.config/ptpython`. The `config` is
 picked up by default.
