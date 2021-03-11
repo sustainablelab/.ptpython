@@ -1,6 +1,13 @@
 # Windows: Put `config.py` in appdirs folder
 
-Open a Python REPL and use `appdirs` to find out where the
+Open a **ptpython** REPL (**do not** open a *regular* Python REPL
+because you will not be able to import `appdirs`):
+
+```bash
+$ ptpython
+```
+
+Use ptpython module `appdirs` to find out where the
 `ptpython` *config* files should go:
 
 ```python
