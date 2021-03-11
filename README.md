@@ -1,3 +1,32 @@
+# PtPython with venv within Cygwin bash
+
+Create a Python venv from Windows Powershell as usual.
+
+For example, here I am going to edit my `microspec` package. I
+want to test edits to `microspec` by running its commands from a
+terminal within Vim (running under Cygwin). But I want to use
+PtPython instead of the default Python REPL.
+
+I create a venv as usual and install my package in editable
+mode:
+
+```powershell
+PS C:\Users\mike> python -m venv microspecdev
+PS C:\Users\mike> .\microspecdev\Scripts\activate 
+(microspecdev) PS C:\Users\mike> python -m pip install -U pip
+(microspecdev) PS C:\Users\mike> pip install -e C:\cygwin64\home\mike\.local\lib\python3.7\site-packages\microspec\
+```
+
+And now install `ptpython` within this venv:
+
+```powershell
+(microspecdev) PS C:\Users\mike> pip install ptpython
+```
+
+Now Launch Cygwin bash and use `ptpython.exe` to run the
+`ptpython` installed in the venv. This `ptpython` has access to
+whatever packages I install in the `venv`.
+
 # Windows: Put `config.py` in appdirs folder
 
 Open a **ptpython** REPL (**do not** open a *regular* Python REPL
